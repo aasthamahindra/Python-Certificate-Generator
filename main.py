@@ -34,14 +34,14 @@ frame.create_window(180, 250, window=label3)
 
 def savePDF():
     global file, saved_name, imgName
-    file = pandas.read_excel(r"C:\Users\pc xpertz\Desktop\Names.xlsx")
+    file = pandas.read_excel(r"C:\PATH-TO-EXCEL")
     for i in file.index:
         now = pandas.Timestamp.today()
         joined = file["Date of Joining"][i]
         period = (now - joined).days
         if period >= 365:
             name = file["Name"][i]
-            img = Image.open(r"C:\Users\pc xpertz\Documents\GitHub\Certificate_Generator\Sample_Certificate.png").convert('RGB')
+            img = Image.open(r"C:\PATH-TO-PNG-FILE").convert('RGB')
             certificate = ImageDraw.Draw(img)
             location = (260,190)
             font = ImageFont.truetype("times.ttf", 20)
